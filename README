@@ -1,0 +1,6 @@
+initiate the account
+initiate the stream for DNS domains
+create a file route53.account and provide a list of account.url.nfo
+create a file for each account.url with the .nfo extension
+Add all subdomains in the account with their resp type and value
+sort order each file
