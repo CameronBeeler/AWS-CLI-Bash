@@ -1,10 +1,15 @@
+SSO_STARTUP
+This is an SSO setup bash loop that takes a file-list of your AWS CLI SSO config profiles for SSO startup
+1. Requires the current AWS CLI
+2. Requires the use of SSO tokens, and each account configured using SSO
+3. Requires a text file that has a list of your 'one to many' SSO profile names for your accounts.
+4. Requires a manual 'Approve' in your default browser for each SSO profile login
+the command line format:
+. sso_startup.sh your_profile_file.any
+
 GETDNS
 This is a discovery script.  It is meant to review Route53 domains & hosted-zones for one or many identified AWS Accounts.
 
-1. Requires the current AWS CLI
-2. Requires the use of SSO tokens, and each account configured using SSO
-3. Requires a text file that has a list of your one to many SSO profile names for your accounts
-4. Requires a manual 'Approve' in your default browser for each SSO profile login
-
+1. Pre-requisite execution of the SSO_STARTUP shell script prior to getdns shell
 command line format
 . getdns.sh your_profile_file.any
