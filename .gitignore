@@ -1,2 +1,4 @@
 *.in
 *.code-workspace
+*.rrs
+*.domains
