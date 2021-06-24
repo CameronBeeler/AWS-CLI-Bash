@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ ! -f bashlog.out ];
+then
+   echo "Create bashlog.out logfile from getdns shell, on $(date +%F-%T)" > bashlog.out
+fi
+
+
 echo "GETDNS executed on $(date +%F-%T) ====================" >> bashlog.out
 
 # read the input file (account profile name)
@@ -11,7 +17,7 @@ if [ $# -eq 0 ]
 fi
 
 awsProfile=$1
-echo ${awsProfile} >> bashlog.out
+echo "${awsProfile}" >> bashlog.out
 
 
 if [ -f "${awsProfile}" ]; then
@@ -28,22 +34,22 @@ do
    accountDomains=${profile}.domains
    echo "reset the ${accountDomains} file to null" >> bashlog.out
    > ${accountDomains}
-   echo ${accountDomains} domain file has been successfully created >> bashlog.out
+   echo "${accountDomains} domain file has been successfully created." >> bashlog.out
 
    while read domainId ; 
    do
 
 #     read in the domain.  
       hzFileName=${profile}.${domainId}.rrs
-      echo "reset the ${hzFileName} file to null" >> bashlog.out
+      echo "reset the ${hzFileName} file to null." >> bashlog.out
       > $hzFileName
-      echo "-----adding ${hzFileName} to ${accountDomains}" >> bashlog.out
+      echo "-----adding ${hzFileName} to ${accountDomains}." >> bashlog.out
       echo ${hzFileName} >> ${accountDomains} 
 
 
            while read hostedZone;
            do
-              echo "==== ${hostedZone} added to ${hzFileName}" >> bashlog.out
+              echo "==== ${hostedZone} added to ${hzFileName}." >> bashlog.out
               echo ${hostedZone} >> ${hzFileName}
            done < <(aws route53 list-resource-record-sets --hosted-zone-id ${domainId} --output json --profile ${profile} |jq -jr '.ResourceRecordSets[] | "\(.Type) \t\(.Name) \t\(.ResourceRecords[]?.Value)\n"'|sort; exit)
     
@@ -54,7 +60,7 @@ for nodomains in *.domains;
 do 
    if [ ! -s ${nodomains} ]; 
    then 
-      echo "Remove the empty file ${nodomains}" >> bashlog.out
+      echo "Remove the empty file ${nodomains}." >> bashlog.out
       rm ${nodomains}; 
    fi; 
 done

@@ -2,3 +2,4 @@
 *.code-workspace
 *.rrs
 *.domains
+*.out
