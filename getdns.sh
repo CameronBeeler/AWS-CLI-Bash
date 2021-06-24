@@ -47,3 +47,5 @@ echo ${accountDomains} domain file has been successfully created
     
       done < <(aws route53 list-hosted-zones --profile ${profile} --output json | jq '.[]|.[]|.Id'|sed 's:"/hostedzone/::'|sed 's:"$::'; exit)
 done < $awsProfile
+
+for nodomains in *.domains; do if [ ! -s ${nodomains} ]; then rm ${nodomains}; fi; done
