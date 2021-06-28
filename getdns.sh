@@ -36,11 +36,13 @@ do
    > ${accountDomains}
    echo "${accountDomains} domain file has been successfully created." >> bashlog.out
 
-   while read domainId ; 
+   while read hostZoneInfo ; 
    do
 
-#     read in the domain.  
-      hzFileName=${profile}.${domainId}.rrs
+#     read in the domain Id and the domain Name for file naming purposes.  
+      domainId=$(echo ${hostZoneInfo}|cut -d' ' -f1)
+      domainName=$(echo ${hostZoneInfo}|cut -d' ' -f2|sed 's:.$::')
+      hzFileName=${profile}.$domainName.${domainId}.rrs
       echo "reset the ${hzFileName} file to null." >> bashlog.out
       > $hzFileName
       echo "-----adding ${hzFileName} to ${accountDomains}." >> bashlog.out
@@ -53,7 +55,8 @@ do
               echo ${hostedZone} >> ${hzFileName}
            done < <(aws route53 list-resource-record-sets --hosted-zone-id ${domainId} --output json --profile ${profile} |jq -jr '.ResourceRecordSets[] | "\(.Type) \t\(.Name) \t\(.ResourceRecords[]?.Value)\n"'|sort; exit)
     
-      done < <(aws route53 list-hosted-zones --profile ${profile} --output json | jq '.[]|.[]|.Id'|sed 's:"/hostedzone/::'|sed 's:"$::'; exit)
+   done < <(aws route53 list-hosted-zones --profile ${awsProfile} --output json | jq -jr '.[] |.[]|"\(.Id) \t\(.Name)\n"'|sed 's:/hostedzone/::'; exit)
+
 done < $awsProfile
 
 for nodomains in *.domains; 
