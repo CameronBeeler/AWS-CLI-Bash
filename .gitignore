@@ -3,3 +3,4 @@
 *.rrs
 *.domains
 *.out
+*.dns_cleanup
