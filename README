@@ -7,9 +7,37 @@ This is an SSO setup bash loop that takes a file-list of your AWS CLI SSO config
 the command line format:
 . sso_startup.sh your_profile_file.any
 
-GETDNS
-This is a discovery script.  It is meant to review Route53 domains & hosted-zones for one or many identified AWS Accounts.
 
-1. Pre-requisite execution of the SSO_STARTUP shell script prior to getdns shell
+GETDNS
+This is a discovery script.  It is meant to review Route53 domains & 
+hosted-zones for one or many identified AWS Accounts.
+
+1. Pre-requisite of all accounts you are discovering to have SSO credentials active 
+on the terminal and included within the profile input account
+
+2. It is noteworthy that the SSO_STARTUP script also in this repository can 
+be used to initiate your SSO credentials in your terminal using the same
+profile account input file of your making...
+
+3. You will need a text file with your list of discovery aws config profile names
+
 command line format
-. getdns.sh your_profile_file.any
+. getdns.sh your_profile_file.input
+
+
+GETEIP
+This is a discovery script.  It is meant to collect all Elastic IP addresses 
+from all profile accounts and all regions described in the respective input accounts
+
+1. Pre-requisite of all accounts you are discovering to have SSO credentials active 
+on the terminal and included within the profile input account
+
+2. It is noteworthy that the SSO_STARTUP script also in this repository can 
+be used to initiate your SSO credentials in your terminal using the same
+profile account input file of your making...
+
+3. You will need a text file with your list of discovery aws config profile names
+
+4. You will need a text file with your list of regions to search within
+command line format
+. getdns.sh your_profile_file.input your_regions_file.input
