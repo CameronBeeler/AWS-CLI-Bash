@@ -1,6 +1,8 @@
+*.swp
 *.in
 *.code-workspace
 *.rrs
 *.domains
 *.out
 *.dns_cleanup
+*.eip_records
