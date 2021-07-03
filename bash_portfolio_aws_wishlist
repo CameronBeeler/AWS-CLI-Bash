@@ -1,0 +1,5 @@
+# All scripts initially bash, AWS specific utilities to accelerate research across a multi-account environment
+
+getdns(done) - pull dns domains and subdomains from all requested AWS accounts.  
+geteip(done) - Collect all Elastic IP's in a single file, identifying the account and region they are in
+getec2(next) - compile a complete list of all ec2 instances across all accounts and all regions
