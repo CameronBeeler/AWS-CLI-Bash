@@ -31,6 +31,6 @@ fi
 
 while read profile; 
 do 
-   aws sso login --profile $profile >> bashlog.out
+   aws sso login --profile $profile >> bashlog.out &
 
 done < ${awsProfile}

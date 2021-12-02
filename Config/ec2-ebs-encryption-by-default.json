@@ -1,0 +1,15 @@
+{
+   "ConfigRule":
+   {
+      "ConfigRuleName": "ec2-ebs-encryption-by-default",
+      "Description": "Check that Amazon Elastic Block Store (EBS) encryption is enabled by default. The rule is NON_COMPLIANT if the encryption is not enabled.",
+      "Source": 
+      {
+         "Owner": "AWS",
+         "SourceIdentifier": "EC2_EBS_ENCRYPTION_BY_DEFAULT"
+      },
+      "InputParameters": "{}",
+      "MaximumExecutionFrequency": "TwentyFour_Hours",
+      "ConfigRuleState": "ACTIVE"
+   }
+}

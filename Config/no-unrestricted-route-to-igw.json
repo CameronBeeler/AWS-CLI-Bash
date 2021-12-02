@@ -1,0 +1,21 @@
+{
+   "ConfigRule": 
+   {
+      "ConfigRuleName": "no-unrestricted-route-to-igw",
+      "Description": "Checks if there are public routes in the route table to an Internet Gateway (IGW). The rule is NON_COMPLIANT if a route to an IGW has a destination CIDR block of '0.0.0.0/0' or '::/0' or if a destination CIDR block does not match the rule parameter.",
+      "Scope": 
+      {
+         "ComplianceResourceTypes": 
+         [
+            "AWS::EC2::RouteTable"
+         ]
+      },
+      "Source": 
+      {
+         "Owner": "AWS",
+         "SourceIdentifier": "NO_UNRESTRICTED_ROUTE_TO_IGW"
+      },
+      "InputParameters": "{}",
+      "ConfigRuleState": "ACTIVE"
+   }
+}

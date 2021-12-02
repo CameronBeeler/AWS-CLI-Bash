@@ -1,0 +1,15 @@
+{
+   "ConfigRule": 
+   {
+      "ConfigRuleName": "root-account-mfa-enabled",
+      "Description": "Checks whether the root user of your AWS account requires multi-factor authentication for console sign-in.",
+      "Source": 
+      {
+         "Owner": "AWS",
+         "SourceIdentifier": "ROOT_ACCOUNT_MFA_ENABLED"
+      },
+      "InputParameters": "{}",
+      "MaximumExecutionFrequency": "TwentyFour_Hours",
+      "ConfigRuleState": "ACTIVE"
+   }
+}

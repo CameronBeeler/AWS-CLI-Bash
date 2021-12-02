@@ -1,0 +1,16 @@
+{
+"ConfigRule": {
+  "ConfigRuleName": "restricted-ssh",
+  "Description": "Checks whether security groups that are in use disallow unrestricted incoming SSH traffic.",
+  "Scope": {
+    "ComplianceResourceTypes": [
+      "AWS::EC2::SecurityGroup"
+    ]
+  },
+  "Source": {
+    "Owner": "AWS",
+    "SourceIdentifier": "INCOMING_SSH_DISABLED"
+  },
+  "InputParameters": "{}"
+}
+}

@@ -1,0 +1,15 @@
+{
+   "ConfigRule":
+   {
+      "ConfigRuleName": "access-keys-rotated",
+      "Description": "Checks whether the active access keys are rotated within the number of days specified in maxAccessKeyAge. The rule is non-compliant if the access keys have not been rotated for more than maxAccessKeyAge number of days.",
+      "Source": 
+      {
+         "Owner": "AWS",
+         "SourceIdentifier": "ACCESS_KEYS_ROTATED"
+      },
+      "InputParameters": "{\"maxAccessKeyAge\":\"90\"}",
+      "MaximumExecutionFrequency": "TwentyFour_Hours",
+      "ConfigRuleState": "ACTIVE"
+   }
+}
