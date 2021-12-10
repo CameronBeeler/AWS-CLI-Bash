@@ -84,7 +84,7 @@ do
            insertRecord="${ssoAccountProfileName} ${AWSRegion} ${eip_record} ${associd_record}"
            echo ${insertRecord} >> ElasticIP_Collection.out
            eipRecordCounter=$(expr $eipRecordCounter + 1)
-        done < <(aws ec2 describe-addresses --region ${AWSRegion} --profile ${ssoAccountProfileName} --output json|jq -c '.[]|.[]|[.PublicIp,.AssociationId]|@sh'|sed 's:"::g'|sed "s:'::g";exit)
+       done < <(aws ec2 describe-addresses --region ${AWSRegion} --profile ${ssoAccountProfileName} --output json|jq -c '.[]|.[]|[.PublicIp,.AssociationId]|@sh'|sed 's:"::g'|sed "s:'::g";exit)
            echo "$(date +%Y%m%d::%H%M) -  ${eipRecordCounter} EIP's in ${ssoAccountProfileName} $AWSRegion" >> bashlog_eip.out
            if [ ${eipRecordCounter} -gt 0 ] ;
            then
