@@ -1,0 +1,9 @@
+aws configservice put-config-rule --cli-input-json file://root-account-mfa-enabled.json --profile x-marketing --region cc-region-#
+aws configservice put-config-rule --cli-input-json file://account-part-of-organizations.json --profile x-marketing --region cc-region-#
+aws configservice put-config-rule --cli-input-json file://restricted-ssh.json --profile x-marketing --region cc-region-#
+aws configservice put-config-rule --cli-input-json file://no-unrestricted-route-to-igw.json --profile x-marketing --region cc-region-#
+aws configservice put-config-rule --cli-input-json file://ec2-ebs-encryption-by-default.json --profile x-marketing --region cc-region-#
+aws configservice put-config-rule --cli-input-json file://ec2-security-group-attached-to-eni.json --profile x-marketing --region cc-region-#
+aws configservice put-config-rule --cli-input-json file://ec2-volume-inuse-check.json --profile x-marketing --region cc-region-#
+aws configservice put-config-rule --cli-input-json file://eip-attached.json --profile x-marketing --region cc-region-#
+aws configservice put-config-rule --cli-input-json file://acm-certificate-expiration-check.json --profile x-marketing --region cc-region-#

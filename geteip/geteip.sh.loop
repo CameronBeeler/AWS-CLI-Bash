@@ -1,0 +1,5 @@
+       done < <(aws ec2 describe-addresses --region ${AWSRegion} --profile ${ssoAccountProfileName} --output json|jq -c '.[]|.[]|[.PublicIp,.AssociationId]|@sh'|sed -e 's:"::g'|sed "s:'::g";exit)
+#       done < <(aws ec2 describe-addresses --region ${AWSRegion} --profile ${ssoAccountProfileName} --output json|jq '.[]|.[]|{PublicIp,AssociationId}'|sed 's:{::g'|sed 's:}::g';exit)
+   done < <(cat ${RegionsInputFile})
+done < <(cat ${ssoProfileInputFile})
+done
